@@ -8,6 +8,8 @@ version '1.0.0'
 resource_type 'gametype' { name = 'My awesome game type!' }
 
 client_script {
-    'zone-client.lua',
+    'utils.lua',
+    'zone-config.lua',
+    'polyzone-client.lua',
     'client.lua'
 }
