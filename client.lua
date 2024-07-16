@@ -8,7 +8,7 @@ local function setup()
 
     PolyZone:Create(
       zone.coords,
-      Utils:spreadObject(zone.args, {
+      exports.utils:spreadObject(zone.args, {
         name = zone.name
       })
     )
