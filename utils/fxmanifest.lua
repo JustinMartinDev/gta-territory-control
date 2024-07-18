@@ -6,4 +6,7 @@ description 'An awesome, but short, description'
 version '1.0.0'
 
 client_script 'utils.lua'
-exports { "spreadObject" }
+server_script 'utils.lua'
+
+exports { "spreadObject", "dump" }
+server_export { "spreadObject", "dump" }
