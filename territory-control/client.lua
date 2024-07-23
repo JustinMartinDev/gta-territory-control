@@ -9,6 +9,10 @@ RegisterCommand('setup-ped', function()
   TriggerServerEvent("Ped:RequestPeds")
 end, false)
 
+RegisterCommand('setup-marker', function()
+  TriggerServerEvent("Marker:RequestMarkers")
+end, false)
+
 AddEventHandler('onClientGameTypeStart', function()
   exports.spawnmanager:setAutoSpawnCallback(function()
     exports.spawnmanager:spawnPlayer({

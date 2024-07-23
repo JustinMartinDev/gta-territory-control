@@ -38,40 +38,6 @@ function disablePedMovement(ped)
   SetPedCanEvasiveDive(ped, false)
 end
 
-
--- Example of rotating a vehicle 360 degrees
-RegisterCommand('rotate', function(_, args)
-  local vehicle = tonumber(args[1])
-  local degres = tonumber(args[2])
-
-  local rot = GetEntityRotation(vehicle, 2)
-  local roll, pitch, yaw = rot.x, rot.y, rot.z
-
-
-  local finalYaw = yaw + degres
-  local steps = 12 -- Reduced the number of steps so each rotation is larger
-  -- Function to perform the rotation gradually
-  local function doRotation()
-      local currentYaw = yaw
-      -- Loop to adjust the rotation in steps
-      for i = 1, steps do
-          Citizen.Wait(20) -- Increases the delay between each adjustment to make the animation slower
-          currentYaw = currentYaw + (degres / steps) -- Increments the rotation
-          if currentYaw >= finalYaw then
-              currentYaw = finalYaw
-          end
-          -- Apply the current rotation
-          SetEntityRotation(vehicle, roll, pitch, currentYaw % degres, 2, true)
-          SetEntityHeading(vehicle, currentYaw % degres)
-          if currentYaw == finalYaw then
-              break -- Stops the loop once the rotation is complete
-          end
-      end
-  end
-  -- Execute the rotation in a coroutine to not block the main thread
-  Citizen.CreateThread(doRotation)
-end, false)
-
 local function triggerOnReceivePedsEvent(peds)
   print("peds", peds)
 

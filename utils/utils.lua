@@ -45,3 +45,14 @@ function dump(o)
      return tostring(o)
   end
 end
+
+function tofloat(value)
+  if type(value) ~= 'number' then
+    print("Invalid conversion to float for", value)
+    return value;
+  end
+
+  return value + 0.0
+end
+
+  
